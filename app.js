@@ -49,6 +49,7 @@ var tableStorage = new botbuilder_azure.AzureBotStorage({ gzipData: false }, azu
 */
 // Create your bot with a function to receive messages from the user
 var store = require('data-store')('reminders');
+store.del({force: true});
 //store.del('a');
 store.set('user_map',{'1234':'abhay','127863':'ishani'});
 /*
@@ -183,7 +184,7 @@ bot.dialog('/query',[
         reminder_obj = store.get( user_id );
         console.log( '%s', reminder_obj );
         if (reminder_obj === undefined){
-            session.send('Reminders not set for you')
+            session.say('This is the text that Cortana displays', 'This is the text that is spoken by Cortana.');
         }
         else {
             session.send(' You have '+reminder_obj.length+' reminders set ')
