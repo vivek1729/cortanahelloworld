@@ -186,9 +186,9 @@ bot.dialog('/query',[
             session.send('Reminders not set for you')
         }
         else {
-            session.send(' You have reminders set ')
+            session.send(' You have '+reminder_obj.length+' reminders set ')
             for ( var i in reminder_obj ){
-                session.send( "Task: " + reminder_obj[i].task + "  Set By: " + reminder_obj[i].created_by  )
+                session.send( "Task "+i +": "+ reminder_obj[i].task + "<br>  Created by: " + user_map[reminder_obj[i].created_by]);
                 console.log('Task:  %s', reminder_obj[i].task );
             }
         }  
