@@ -196,7 +196,7 @@ bot.dialog('/query',[
                 console.log('Task:  %s', reminder_obj[i].task );
             }*/
 
-            var text_to_send = "Task 1: "+ reminder_obj[0].task + "<br>  Created by: " + user_map[reminder_obj[0].created_by];
+            var text_to_send = "Task 1: "+ reminder_obj[0].task + "<br/>  Created by: " + user_map[reminder_obj[0].created_by];
             var text_to_speak = user_map[reminder_obj[0].created_by]+' wants to remind you to '+reminder_obj[0].task;
             session.say(text_to_send, text_to_speak);
         }  
