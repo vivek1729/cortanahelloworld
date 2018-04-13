@@ -188,7 +188,9 @@ bot.dialog('/query',[
         else {
             session.send(' You have '+reminder_obj.length+' reminders set ')
             for ( var i in reminder_obj ){
-                session.send( "Task "+i +": "+ reminder_obj[i].task + "<br>  Created by: " + user_map[reminder_obj[i].created_by]);
+                var text_to_send = "Task "+(i+1) +": "+ reminder_obj[i].task + "<br>  Created by: " + user_map[reminder_obj[i].created_by];
+                var text_to_speak = user_map[reminder_obj[i].created_by]+' wants to remind you to '+reminder_obj[i].task;
+                session.say(text_to_send, text_to_speak);
                 console.log('Task:  %s', reminder_obj[i].task );
             }
         }  
